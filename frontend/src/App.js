@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 const App = () => {
   const [data,setData]=useState("");
   const add=async(text)=>{
-    const res=await fetch("http://localhost:8000/app/reaction", {
+    const res=await fetch("https://reaction-tvlr.onrender.com/app/reaction", {
     method:"POST",
     headers: {
         "Content-type":"application/json",
