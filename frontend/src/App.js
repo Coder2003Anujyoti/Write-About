@@ -10,7 +10,7 @@ const App = () => {
     body:JSON.stringify(text)
 });
  const data=await res.json();
-  alert(data.message);
+  alert("Successfully message sent");
 setData("");
   }
   const go=(text)=>{
