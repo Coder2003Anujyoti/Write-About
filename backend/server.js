@@ -11,7 +11,7 @@ const URL = 'mongodb+srv://anujyotide:cr7FUgn1CxHAHUxo@benapi.x6nes.mongodb.net/
 const connectionParams={ useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(URL,connectionParams)
     .then(() => { console.log("Connected to the database");
-    addDataToMongodb();
+    addDataToMongodb()
     }).catch((err)=>{console.log(err)})
     async function addDataToMongodb() {
     await GFGCollection
