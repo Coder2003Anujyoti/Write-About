@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 const App = () => {
   const [data,setData]=useState("");
+  const [disabled,setDisabled]=useState(false);
   const add=async(text)=>{
     const res=await fetch("https://reaction-tvlr.onrender.com/app/reaction", {
     method:"POST",
@@ -12,10 +13,12 @@ const App = () => {
  const data=await res.json();
   alert("Successfully message sent");
 setData("");
+setDisabled(false);
   }
   const go=(text)=>{
   if(text.trim()!=''){
 add({text:text});
+setDisabled(true);
 }
 else{
   alert("Input required");
@@ -32,10 +35,10 @@ useEffect(() => {
     <div className="p-8 flex justify-center font-bold text-2xl text-center">
     <h1>Enter the Text</h1>
     </div>
-    <div className="p-8 flex justify-center font-bold text-center"><textarea placeholder="Enter the text..." 
+  {disabled==false && <> <div className="p-8 flex justify-center font-bold text-center"><textarea placeholder="Enter the text..." 
     value={data} onChange={(e)=>
     setData(e.target.value)} className="p-8 items-start rounded-lg shadow-lg" /></div>
-    <div className="p-8 flex justify-center font-bold text-center"><button className="px-8 py-2 rounded-xl text-lg bg-indigo-400" onClick={()=>go(data)}>Submit</button></div>
+    <div className="p-8 flex justify-center font-bold text-center"><button className="px-8 py-2 rounded-xl text-lg bg-indigo-400" onClick={()=>go(data)}>Submit</button></div> </>}
  
 
     </>

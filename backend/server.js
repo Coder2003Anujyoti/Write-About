@@ -53,8 +53,8 @@ app.post('/app/reaction', async (req, res) => {
     const newSample = await GFGCollection({
       text:req.body.text,
     });
-    await newSample.save({ w: "majority" });
-    return res.status(201).json(newSample);
+    const saved=await newSample.save();
+    return res.status(201).json(saved);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
