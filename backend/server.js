@@ -2,7 +2,7 @@
 const express = require('express');
 const fs=require('fs');
 const app = express();
-const PORT = 8000;
+const PORT = 8001;
 const data=require("./text.json");
 const cors=require('cors');
 const bodyParser=require('body-parser');
