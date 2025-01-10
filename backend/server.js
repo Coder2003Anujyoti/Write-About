@@ -2,7 +2,7 @@
 const express = require('express');
 const fs=require('fs');
 const app = express();
-const PORT = 8001;
+const PORT = 8000;
 const data=require("./text.json");
 const cors=require('cors');
 const bodyParser=require('body-parser');
@@ -53,7 +53,7 @@ app.post('/app/reaction', async (req, res) => {
     const newSample = await GFGCollection({
       text:req.body.text,
     });
-    const saved=await newSample.save();
+    const saved=await newSample.save({w:"majoriry"});
     return res.status(201).json(saved);
   } catch (err) {
     res.status(500).json({ error: err.message });
