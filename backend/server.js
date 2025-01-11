@@ -10,6 +10,7 @@ app.use(cors({
   origin:"*"
 }));
 app.use(bodyParser.json());
+app.use(express.json());
 app.use(bodyParser.urlencoded({extended:false}))
 // define the route
 app.get('/',
@@ -19,7 +20,7 @@ app.get('/',
             Hello Anujyoti!</h1>`
         );
     });
-app.get('/app/reaction',(req,res)=>{
+app.get('/reaction',(req,res)=>{
        return res.json(data);
 })
 app.post('/app/reaction',(req, res) => {
