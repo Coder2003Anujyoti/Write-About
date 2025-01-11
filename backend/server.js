@@ -1,5 +1,6 @@
 // server.js
 const express = require('express');
+const local=require('node-localstorage')
 const fs=require('fs');
 const app = express();
 const PORT = 8001;
@@ -28,6 +29,7 @@ app.post('/app/reaction',(req, res) => {
     text:req.body.text
   }
     data.push(item);
+    local.setItem('items',data);
     fs.writeFile("./text.json",JSON.stringify(data),(err,result)=>{
       if(err)
       console.log(err)

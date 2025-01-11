@@ -3,7 +3,7 @@ const App = () => {
   const [data,setData]=useState("");
   const [disabled,setDisabled]=useState(false);
   const add=async(text)=>{
-    const res=await fetch("https://reaction-tvlr.onrender.com/app/reaction", {
+    const res=await fetch("https://open-aileen-apisjdjjd-eed66aa2.koyeb.app/app/reaction", {
     method:"POST",
     headers: {
         "Content-type":"application/json",
