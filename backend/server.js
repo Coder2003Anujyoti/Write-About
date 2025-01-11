@@ -20,14 +20,14 @@ app.get('/',
         );
     });
 app.get('/app/reaction',(req,res)=>{
-       return res.status(201).json(data);
+       return res.json(data);
 })
 app.post('/app/reaction',(req, res) => {
   const item={
     text:req.body.text
   }
     data.push(item);
-    fs.writeFile("./text.json",JSON.stringify(data),(err,data)=>{
+    fs.writeFile("./text.json",JSON.stringify(data),(err,result)=>{
       if(err)
       console.log(err)
     });
